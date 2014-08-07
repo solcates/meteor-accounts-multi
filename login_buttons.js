@@ -92,7 +92,6 @@ getLoginServicesAsync = function() {
 getLoginServices = function() {
     // Session.set('loginServices', []);
     getLoginServicesAsync();
-    
     return Session.get('loginServices');
 };
 
@@ -101,7 +100,9 @@ hasPasswordService = function() {
 };
 
 dropdown = function() {
-    return hasPasswordService() || getLoginServices().length > 1;
+
+    // return hasPasswordService() || getLoginServices().length > 1;
+    return true;
 };
 
 // XXX improve these. should this be in accounts-password instead?
