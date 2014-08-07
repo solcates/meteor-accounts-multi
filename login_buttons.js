@@ -90,8 +90,9 @@ getLoginServicesAsync = function() {
 
 
 getLoginServices = function() {
-    Session.set('loginServices', []);
+    // Session.set('loginServices', []);
     getLoginServicesAsync();
+    
     return Session.get('loginServices');
 };
 
