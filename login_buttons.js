@@ -60,26 +60,33 @@ getLoginServicesAsync = function() {
 
     // remove services that we already use
     Meteor.call('getUserServices', function(error, userServices) {
-        _.each(userServices, function(userService) {
-            _.each(services, function(service, k) {
-                if (service == userService) {
-                    services.remove(k);
-                }
-            })
-        });
+         Meteor.call('getUserServices', function(error, userServices) {
+        if (userServices == false) {
+            console.log(services);
+            var result = _.map(services, function(name) {
+                return {
+                    name: name
+                };
+            });
+            Session.set('loginServices', result)
+        } else {
+            _.each(userServices, function(userService) {
+                _.each(services, function(service, k) {
+                    if (service == userService) {
+                        services.remove(k);
+                    }
+                })
+            });
 
-        var result = _.map(services, function(name) {
-            return {
-                name: name
-            };
-        });
+            var result = _.map(services, function(name) {
+                return {
+                    name: name
+                };
+            });
 
-        Session.set('loginServices', result)
-
+            Session.set('loginServices', result)
+        }
     });
-
-
-
 };
 
 
