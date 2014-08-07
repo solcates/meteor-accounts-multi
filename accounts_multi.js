@@ -9,7 +9,6 @@ Accounts.updateOrCreateUserFromExternalService = function(serviceName, serviceDa
             $set: setAttr
         });
     }
-
     return orig_updateOrCreateUserFromExternalService.apply(this, arguments);
 };
 
