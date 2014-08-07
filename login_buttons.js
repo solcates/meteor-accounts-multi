@@ -59,8 +59,8 @@ getLoginServicesAsync = function() {
         services.push('password');
 
     // remove services that we already use
+
     Meteor.call('getUserServices', function(error, userServices) {
-         Meteor.call('getUserServices', function(error, userServices) {
         if (userServices == false) {
             console.log(services);
             var result = _.map(services, function(name) {
