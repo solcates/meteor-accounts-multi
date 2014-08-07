@@ -62,7 +62,6 @@ getLoginServicesAsync = function() {
 
     Meteor.call('getUserServices', function(error, userServices) {
         if (userServices == false) {
-            console.log(services);
             var result = _.map(services, function(name) {
                 return {
                     name: name

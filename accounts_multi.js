@@ -19,7 +19,6 @@ Meteor.methods({
         if (user) {
             var result = [];
             _.each(user.services, function(v, k) {
-                console.log(v, k);
                 result.push(k);
             });
             return result;
