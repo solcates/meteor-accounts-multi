@@ -46,8 +46,9 @@ Template._loginButtonsLoggedInDropdownActions.allowChangingPassword = function()
     // and it'd be preferable not to send down the entire service.password document.
     //
     // instead we use the heuristic: if the user has a username or email set.
-    var user = Meteor.user();
-    return user.username || (user.emails && user.emails[0] && user.emails[0].address);
+    // var user = Meteor.user();
+    // return user.username || (user.emails && user.emails[0] && user.emails[0].address);
+    return false
 };
 
 
